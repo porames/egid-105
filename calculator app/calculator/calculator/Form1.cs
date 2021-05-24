@@ -34,9 +34,20 @@ namespace calculator
         {
             if (saved_input != null)
             {
-                string s = (sender as Button).Text;
-                operation = s;
-                answer.Text = answer.Text + s;
+                if (operation == null)
+                {
+                    string s = (sender as Button).Text;
+                    operation = s;
+                    answer.Text = answer.Text + s;
+                }
+                else
+                {
+                    equal.PerformClick();
+                    string s = (sender as Button).Text;
+                    operation = s;
+                    answer.Text = answer.Text + s;
+                }
+               
             }
             
         }
@@ -44,7 +55,25 @@ namespace calculator
         {
             if (saved_input != null)
             {
-                answer.Text = Convert.ToString(Convert.ToInt32(saved_input) + Convert.ToInt32(new_input));
+                if(operation == "+")
+                {
+                    saved_input = Convert.ToString(Convert.ToInt32(saved_input) + Convert.ToInt32(new_input));
+                }
+                else if (operation == "-")
+                {
+                    saved_input = Convert.ToString(Convert.ToInt32(saved_input) - Convert.ToInt32(new_input));
+                }
+                else if(operation == "x")
+                {
+                    saved_input = Convert.ToString(Convert.ToInt32(saved_input) * Convert.ToInt32(new_input));
+                }
+                else if (operation == "mod")
+                {
+                    saved_input = Convert.ToString(Convert.ToInt32(saved_input) % Convert.ToInt32(new_input));
+                }
+                new_input = null;
+                operation = null;
+                answer.Text = saved_input;
             }
         }
         private void numpad_Click(object sender, EventArgs e)

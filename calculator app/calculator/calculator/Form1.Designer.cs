@@ -46,6 +46,7 @@ namespace calculator
             this.multiply = new System.Windows.Forms.Button();
             this.equal = new System.Windows.Forms.Button();
             this.answer = new System.Windows.Forms.Label();
+            this.mod = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -175,7 +176,7 @@ namespace calculator
             this.flowLayoutPanel2.Controls.Add(this.equal);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(427, 123);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(142, 421);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(124, 421);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // plus
@@ -228,11 +229,22 @@ namespace calculator
             this.answer.TabIndex = 2;
             this.answer.Click += new System.EventHandler(this.label1_Click);
             // 
+            // mod
+            // 
+            this.mod.Location = new System.Drawing.Point(548, 125);
+            this.mod.Name = "mod";
+            this.mod.Size = new System.Drawing.Size(112, 102);
+            this.mod.TabIndex = 3;
+            this.mod.Text = "mod";
+            this.mod.UseVisualStyleBackColor = true;
+            this.mod.Click += new System.EventHandler(this.operation_click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 574);
+            this.Controls.Add(this.mod);
             this.Controls.Add(this.answer);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -265,6 +277,7 @@ namespace calculator
         private System.Windows.Forms.Button multiply;
         private System.Windows.Forms.Label answer;
         private System.Windows.Forms.Button equal;
+        private System.Windows.Forms.Button mod;
     }
 }
 
